@@ -44,7 +44,7 @@
                            <p class="card-text" style="color:#222"><%=bot.ayar.fetch(`botlar.${idd}.kisaaciklama`)%></p>
                             <hr>
                             <div class="button_slide"><h6 align="center"><a href="/bot/<%=idd%>" style="font-size:20px; text-decoration:none; color:white; ">Görüntüle</a></div>
-                              <% if (bot.ayar.fetch(`botlar.${idd}.sahipid`) !== user.id) { %>
+                              <% if (bot.ayar.fetch(`botlar.${idd}.sahipid`)) { %>
                                 <a href="https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=8" style="font-size:20px; color:#222; background-color:#fff" target="popup" onclick="window.open('https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8','name','width=400,height=700')">Davet Et</a></h6>
                                 <% } %>
         <% if (user) { %>
