@@ -3,10 +3,10 @@
 <div class="post post-single">
                   <br>
                         <div class="post-meta">
-                            <div align="center"><span class="yapimci"><i class="fa fa-gavel" aria-hidden="true"></i> <strong>Yapımcı: </strong><a href="/kullanici/<%=bot.ayar.fetch(`botlar.${id}.sahipid`)%>"><%=bot.ayar.fetch(`botlar.${id}.sahip`)%></a></span><a style="color:lightgrey;font-weight:bold;">   |   </a>
+                            <div align="center"><span class="yapimci"><i class="fa fa-gavel" aria-hidden="true"></i> <strong>Owner: </strong><a href="/kullanici/<%=bot.ayar.fetch(`botlar.${id}.sahipid`)%>"><%=bot.ayar.fetch(`botlar.${id}.sahip`)%></a></span><a style="color:lightgrey;font-weight:bold;">   |   </a>
                             <span class="oy"><a class="oy"><i class="fa fa-check-circle" aria-hidden="true"></i> <%=bot.ayar.fetch(`botlar.${id}.oy`) || 0%> Oy</a></span>
                         <% if(bot.ayar.has(`botlar.${id}.sertifika`) === true) { %>
-                              <a style="color:lightgrey;font-weight:bold;">  | </a><span><img src="https://i.postimg.cc/SxFNhhJS/xir-sertifika.png" width="20px" height="20px"> <a style="color:limegreen">Sertifikalı</a></span>
+                              <a style="color:lightgrey;font-weight:bold;">  | </a><span><img src="https://i.postimg.cc/SxFNhhJS/xir-sertifika.png" width="20px" height="20px"> <a style="color:limegreen">Certified</a></span>
                          <% } %>
                           </div>
                         </div><br>
@@ -20,7 +20,7 @@
           <button class="botprefix btn btn-default">Prefix: <%=bot.ayar.fetch(`botlar.${id}.prefix`)%></button>
           
       <%if (bot.ayar.has(`botlar.${id}.destek`)){%>
-                 <a href="<%=bot.ayar.fetch(`botlar.${id}.destek`)%>"><button class="btn btn-warning destek">Destek Sunucusu</button></a>
+                 <a href="<%=bot.ayar.fetch(`botlar.${id}.destek`)%>"><button class="btn btn-warning destek"></button></a>
             <%} %>
           
           <%if (bot.ayar.has(`botlar.${id}.site`)){%>
