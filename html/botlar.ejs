@@ -3,9 +3,9 @@
 <div class="container">
 <br>
 <h3 align="center" style="color:Grey">
-    <strong>Botlar
+    <strong>BOL LISTS
     </strong></h3>
-  <div align="center"><p>Burada sistemdeki tüm botlar yer almaktadır. <br>(Botlar oy sayısına göre orantılı olarak sıralanmaktadır.)</p></div>
+  <div align="center"><p>Here are all the bots in the api. <br>(Bots are ranked in proportion to the no. of votes)</p></div>
   <br>
     
   <div align="center">
@@ -32,10 +32,10 @@
         
           <% if(bot.ayar.has(`botlar.${idd}.sertifika`) === true) { %>
        
-       <br><a style="color:darkorange"><img src="https://i.postimg.cc/SxFNhhJS/xir-sertifika.png" width="30px" height="30px"> Sertifikalı</a><br>
+       <br><a style="color:darkorange"><img src="https://i.postimg.cc/SxFNhhJS/xir-sertifika.png" width="30px" height="30px"> Certified</a><br>
        <% } %>
 <br>
-       <div class="badge badge-primary"><strong style='color: white;'>Oy: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`botlar.${idd}.oy`)||0%></span></div>
+       <div class="badge badge-primary"><strong style='color: white;'>Votes: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`botlar.${idd}.oy`)||0%></span></div>
                     <div class="badge badge-success"><%=bot.ayar.fetch(`botlar.${idd}.kutuphane`)%></div>
                      
           </div>
