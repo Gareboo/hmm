@@ -3,7 +3,7 @@
 <div class="container is-fullhd">
 	<div class="row justify-content-md-center">
 
-		<h2 style="color: #ffffff;">Bot Ekleme</h2>
+		<h2 style="color: #ffffff;">BOT ADD</h2>
 	</div>
  <form method="post">
 				
@@ -12,25 +12,25 @@
 		<div><i aria-hidden="true"></i>Client ID <a style="color:red">*</a></div>
 		<div>
       <input type="text" style="text-align: center;" name="botid" id="botid"
-									placeholder="Örneğin; 509835376857186315" required="required">
+									placeholder="From discord portal application" required="required">
      </div>
    <br>
 		<div><i aria-hidden="true"></i>Bot Prefix <a style="color:red">*</a></div>
 		<div>
       <input type="text" style="text-align: center;" name="botprefix" id="botprefix"
-									placeholder="+" required="required">
+									placeholder="" required="required">
      </div>
 <br>
-<div><i aria-hidden="true"></i>Bot Sahibi ID <a style="color:red">*</a></div>
+<div><i aria-hidden="true"></i>Bot Owner ID <a style="color:red">*</a></div>
      <input type="text" style="color:26292d; text-align: center;" name="sahip" id="sahip"
                   value="<%=user.id%>" disabled>
 <br>
 <br>
      
-     <div><i aria-hidden="true"></i>Kütüphane <a style="color:red">*</a></div>
+     <div><i aria-hidden="true"></i>Library <a style="color:red">*</a></div>
     <div class="select-style">
      <select id="kutuphane" name="kutuphane" required="required">
-       <option disabled selected>Lütfen bir kütüphane seçiniz.</option>
+       <option disabled selected>Please select a library</option>
        <option value="discordcr" >discordcr</option>
         
           <option value="Nyxx" >Nyxx</option>
@@ -78,19 +78,19 @@
      </div>
 <br>
      
-     <div><i aria-hidden="true"></i>Kısa Açıklama <a style="color:red">*</a></div>
+     <div><i aria-hidden="true"></i>Short Description<a style="color:red">*</a></div>
 		<div>
       <input type="text" style="text-align: center; height:60px" name="kisa-aciklama" id="kisa-aciklama"
-                placeholder="Botunuzun kısa açıklamasını yazınız." maxlength="50" required="required">
+                placeholder="Botunuzun kısa açıklamasını yazınız." maxlength="30" required="required">
      </div>
      <br>
      <div><i aria-hidden="true"></i>Uzun Açıklama <a style="color:red">*</a></div>
 		<div>
       <textarea style="text-align: center; background-color:#222; hight:150px" name="uzun-aciklama" id="uzun-aciklama"
-                placeholder="Botunuzun uzun açıklamasını yazınız." minlength="50" required="required"></textarea>
+                placeholder="Maximum 30 characters" minlength="50" required="required"></textarea>
      </div>
      <br>
-     <div><i aria-hidden="true"></i>Etiketler <a style="color:red">*</a></div>
+     <div><i aria-hidden="true"></i>Labels <a style="color:red">*</a></div>
      <div>
       <select multiple id="etikett" name="etikett" style="border-radius:4px; background-color:#222; color:#fff">
         <option value="Moderasyon">Moderasyon</option>
@@ -100,31 +100,31 @@
         <option value="Web Panel">Web Panel</option>
        </select>
        <p>
-         <a style="color:red">Not: </a><a style="color:26292d">Birden çok etiket seçilebilir. Bilgisayardaysanız etiketleri <i>CTRL</i> tuşuna basılı tutarak seçiniz.</a>
+         <a style="color:red">Note: </a><a style="color:26292d">Multiple tags can be selected</a>
        </p>
      </div>
      <br>
-     <div><i aria-hidden="true"></i>Site URL'si</div>
+     <div><i aria-hidden="true"></i>Website</div>
 		<div>
       <input type="url" style="text-align: center;" name="botsite" id="botsite"
-                placeholder="Varsa site URL yazınız.">
+                placeholder="url.">
      </div>
      <br>
-     <div><i aria-hidden="true"></i>Github URL'si</div>
+     <div><i aria-hidden="true"></i>Github</div>
 		<div>
       <input type="url" style="text-align: center;" name="github" id="github"
-                placeholder="Varsa Github URL yazınız.">
+                placeholder="Github link">
      </div>
      <br>
-     <div><i aria-hidden="true"></i>Destek Sunucusu URL'si</div>
+     <div><i aria-hidden="true"></i>Support Server</div>
 		<div>
       <input type="url" style="text-align: center;" name="botdestek" id="botdestek"
-                placeholder="Örnek: https://discord.gg/zKXnTDP">
+                placeholder="Ex: https://discord.gg/zKXnTDP">
      </div>
 	
    <br>
    <h6 style="color:red">
-     Yanında Yıldız işareti(<b>*</b>) olanlar zorunlu, olmayanlar ise isteğe bağlıdır.
+     Those with(<b>*</b>) are compludort
    </h6>
 
 				<div style="width: 100%; text-align: center; margin-top: 20px;">
