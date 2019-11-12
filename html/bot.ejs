@@ -36,7 +36,7 @@
   <% if (!user) { %>
         <a href="/giris"><button class="notoy">You must be logged in to vote<i class="fa fa-lock"></i></button></a>
                     <% } else { %>
-        <a href="/bot/<%=id%>/oyver"><button id="oy" href="/bot/<%=id%>/oyver" class="btn btn-primary oyver" type="sumbit"><i aria-hidden="true"></i><i class="fa fa-check-circle" aria-hidden="true"></i> SUBMIT</button></a>
+        <a href="/bot/<%=id%>/oyver"><button id="oy" href="/bot/<%=id%>/oyver" class="btn btn-primary oyver" type="sumbit"><i aria-hidden="true"></i><i class="fa fa-check-circle" aria-hidden="true"></i> VOTE</button></a>
                       <% } %><br>
             <br>
           <a href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8" target="popup" onclick="window.open('https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8','name','width=400,height=700')"><button class="btn btn-success davetet"><i aria-hiddden="true"></i><i class="fa fa-plus" aria-hidden="true"></i> INVITE</button></a>
