@@ -15,18 +15,18 @@ client.ayarlar = {
   "prefix": "+",
   "oauthSecret": "_LRWrO6Kk0Yp0_mFQ3lfyd8-iarcBz-t",
 	"callbackURL":  "https://cypress-mail.glitch.me/callback",
-	"kayıt": "",
-  "rapor": "",
+	"kayıt": "624096233455222795",
+  "rapor": "624096233455222795",
   "renk": "#D49818"
 };
 
 
 
-client.yetkililer = [""]
-client.webyetkililer = [""]
-client.sunucuyetkililer = [""]
-client.yetkililer = [""]
-client.webyetkililer = [""]
+client.yetkililer = ["572327928646598667"]
+client.webyetkililer = ["572327928646598667"]
+client.sunucuyetkililer = ["572327928646598667"]
+client.yetkililer = ["572327928646598667"]
+client.webyetkililer = ["572327928646598667"]
 
 client.on('ready', async () => {
   client.appInfo = await client.fetchApplication();
