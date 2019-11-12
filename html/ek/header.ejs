@@ -140,21 +140,21 @@
      <a id="top" name="top"></a>
 <div class="topnav" id="myTopnav">
       
-			<a href="/" class="active as"><i class="fa fa-home" aria-hidden="true"></i> Ana Sayfa</a>
-      <a href="/botlar" class="as" ><i class="fa fa-android" aria-hidden="true"></i> Botlar</a>
-      <a href="/sertifika" class="as"><i class="fa fa-diamond" aria-hidden="true"></i> Sertifika</a>
-			<a href="/hakkimizda"><i class="fa fa-info-circle" aria-hidden="true"></i> Hakkımızda</a>
+			<a href="/" class="active as"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
+      <a href="/botlar" class="as" ><i class="fa fa-android" aria-hidden="true"></i> BOT LISTS</a>
+      <a href="/sertifika" class="as"><i class="fa fa-diamond" aria-hidden="true"></i> CERTIFICATE</a>
+			<a href="/hakkimizda"><i class="fa fa-info-circle" aria-hidden="true"></i> ABOUT US</a>
 			<% if (!user) { %>
-      <a href="/giris"><i class="fa fa-sign-in" aria-hidden="true"></i> Giriş Yap</a></div>
+      <a href="/giris"><i class="fa fa-sign-in" aria-hidden="true"></i> LOG IN</a></div>
       <% } else { %>
-      <a href="/botekle"><i class="fa fa-plus-circle" aria-hidden="true"></i> Bot Ekle</a>
+      <a href="/botekle"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD BOT</a>
       <% if (bot.yetkililer.includes(user.id) === true) { %>
-      <a href="/yetkili"><i class="fa fa-lock" aria-hidden="true"></i> Yetkili Paneli</a>
+      <a href="/yetkili"><i class="fa fa-lock" aria-hidden="true"></i> DASHBOARD</a>
       <a href="/kullanici/<%=user.id%>">
       <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=32" width="25" height="25" class="d-inline-block align-middle rounded-circle" alt="Kullanıcı Avatar">
       <%=user.username%>
       </a>
-  <a href="/cikis"><i class="fa fa-sign-out" aria-hidden="true"></i> Çıkış Yap</a>
+  <a href="/cikis"><i class="fa fa-sign-out" aria-hidden="true"></i> LOG OUT</a>
 
       <% } %>
       <% } %>	
