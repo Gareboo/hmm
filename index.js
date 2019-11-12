@@ -12,9 +12,9 @@ client.tags = require('html-tags');
 
 
 client.ayarlar = {
-  "prefix": "",
-  "oauthSecret": "",
-	"callbackURL":  "/callback",
+  "prefix": "+",
+  "oauthSecret": "_LRWrO6Kk0Yp0_mFQ3lfyd8-iarcBz-t",
+	"callbackURL":  "https://cypress-mail.glitch.me/callback",
 	"kayıt": "",
   "rapor": "",
   "renk": "#D49818"
@@ -112,6 +112,6 @@ client.on("message", async message => {
 });
 
 
-client.login("")
+client.login("NjM2OTA0ODM3MTExNDgwMzMx.Xcp4Cw.r2tr9J1oLgMy-1rMSTzhIzGxjHw")
 process.env = {}
-process.env.TOKEN = "";   
+process.env.TOKEN = "NjM2OTA0ODM3MTExNDgwMzMx.Xcp4Cw.r2tr9J1oLgMy-1rMSTzhIzGxjHw";   
