@@ -438,20 +438,20 @@ db.set(`botlar.${id}.durum`, 'Onaylı')
 
 res.redirect("/yetkili")
 
-let ch = client.channels.get(co.reportCh);
+let ch = client.channels.get(co.botlogs);
   let emb = new Discord.RichEmbed()
-  .setTitle('Report')
-  .setColor("ff0000")
+  .setTitle('Bot Approved')
+  .setColor("fff000")
   .setTimestamp()
-  .addField("Reported By", `
-  <@${req.user.id}`, true)
-  .addField("Owner", ` <@${db.fetch(`botlar.${id}.sahipid`)}`, true)
-  .addField("Bot ID", `${db.fetch(`botlar.${id}.id`)}`, true)
   .addField("Bot Name", `${db.fetch(`botlar.${id}.isim`)}`, true)
-  .addField("link", `[here] (https://b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+  .addField("Bot Id", `${db.fetch(`botlar.${id}.id`)}`, true)
+  .addField("Bot owner", `<@${db.fetch(`botlar.${id}.sahipid`)}>`, true)
+  .addField("Approved By", `<@${req.user.id}> (${req.user.tag})`, true)
+  .addField("link", `https://b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+  ch.send(emb);
 
 if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`:tada: \`${db.fetch(`botlar.${id}.isim`)}\` adlı botunuz onaylandı.\nhttps://rmbotlist.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(emb);
 }
 
 });
@@ -485,7 +485,14 @@ app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
   
   res.redirect("/yetkili")
   
-  client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` adlı yetkili tarafından \`${db.fetch(`botlar.${id}.sahip`)}\` adlı kullanıcının \`${db.fetch(`botlar.${id}.id`)}\` ID'ine sahip \`${db.fetch(`botlar.${id}.isim`)}\` adlı botu \`${req.body['red-sebep']}\` sebebi ile reddedildi. `)
+  let hch = client.channels.get(co.botlogs);
+  let emb2 = new Discord.RichEmbed()
+  .setTitle("Bot declined")
+  .setColor("ff0000")
+  .setTimestamp()
+  .addField("Bot Name", ``, true)
+  .addField("Owner", ``, true)
+  .addF(`\`${req.user.username}#${req.user.discriminator}\` adlı yetkili tarafından \`${db.fetch(`botlar.${id}.sahip`)}\` adlı kullanıcının \`${db.fetch(`botlar.${id}.id`)}\` ID'ine sahip \`${db.fetch(`botlar.${id}.isim`)}\` adlı botu \`${req.body['red-sebep']}\` sebebi ile reddedildi. `)
   
   if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
   client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` adlı botunuz \`${req.body['red-sebep']}\` sebebi ile reddedildi.`)
