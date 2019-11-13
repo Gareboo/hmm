@@ -14,10 +14,10 @@ exports.run = async (client, msg, args) => {
       var b = db.fetch(`botlar.${args[0]}.id`)
       var c = db.fetch(`botlar.${args[0]}.avatar`)
       var d = db.fetch(`botlar.${args[0]}.prefix`)
-      var e = db.fetch(`botlar.${args[0]}.kütüphane`)
-      var g = db.fetch(`botlar.${args[0]}.kisa_aciklama`)
-      var h = db.fetch(`botlar.${args[0]}.etiketler`);
-      
+      var e = db.fetch(`botlar.${args[0]}.kutuphane`)
+      var g = db.fetch(`botlar.${args[0]}.kisaaciklama`)
+      var h = db.fetch(`botlar.${args[0]}.etiket`);
+      var owner = db.fetch(`botlar.${args[0]}.sahipid`)
     }
       
       request(`https://b0d.glitch.me/bot`, function (error, response, body) {
@@ -30,12 +30,12 @@ exports.run = async (client, msg, args) => {
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setThumbnail(c)
-    .setTitle(`XiR - Bot Arama`)
+    .setTitle(`BOD - Bot Info`)
     .setDescription(`${a} (${b}) `, c)
     .addField('Prefix', d)
-    .addField('Sahip', "hh")
-    .addField('Kısa Açıklama', g)
-    .addField('Etiketler', h)
+    .addField('Owner', `<@${owner}>`)
+    .addField('Description', g)
+    .addField('Tags', h)
     .addField('Sertifika', "gh")
     .addField('Onay Durumu', "m")
     .addField("Web Sitesi","--")
