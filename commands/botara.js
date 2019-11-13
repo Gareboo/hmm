@@ -16,7 +16,7 @@ exports.run = async (client, msg, args) => {
       var d = db.fetch(`botlar.${args[0]}.prefix`)
       var e = db.fetch(`botlar.${args[0]}.kütüphane`)
       var g = db.fetch(`botlar.${args[0]}.kisa_aciklama`)
-      var h = db.fetch(`botlar.${args[0]}.etiketler`)
+      var h = db.fetch(`botlar.${args[0]}.etiketler`);
       if(JSON.parse(body).destek_sunucusu === 'Belirtilmemiş') {
         var i = 'Belirtilmemiş'
       } else {
@@ -37,7 +37,7 @@ exports.run = async (client, msg, args) => {
       var n = JSON.parse(body).oy_sayisi
     }
       
-      request(`https://b0d.glitch.me/bot`, function (error, responsee, body) {
+      request(`https://b0d.glitch.me/bot`, function (error, response, body) {
     if (error) return msg.channel.send('Hata:', error);
     else if (!error) {
     if (body.includes(args[0])=== false) return msg.reply("Bu ID'de bir bot sistemde bulunmamaktadır!")
