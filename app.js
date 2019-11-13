@@ -321,11 +321,11 @@ db.set(`botlar.${ID}.destek`, ayar['botdestek'])
 
 res.redirect("/kullanici/"+req.params.userID);
 let id = req.params.botID
-client.channels.get(co.botlogs).send(`<@${req.user.id}> edited \` ${sistem.username}#${sistem.discriminator}\` adlı botunun başvurusunu&profilini düzenledi. ${edit}\nhttps://rmbotlist.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
-var edit = client.emojis.get("566200909470629889")
+client.channels.get(co.botlogs).send(`<@${req.user.id}> edited \` ${sistem.username}#${sistem.discriminator}\` successfully. \nhttps://b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+
 
 if (client.users.has(req.user.id) === true) {
-client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` adlı botunuzun profili&başvurusu başarıyla düzenlendi. ${edit}`)
+client.users.get(req.user.id).send(`> \`${sistem.username}#${sistem.discriminator}\` edited successfully. \nhttps.b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
 }
 
 }})
@@ -438,7 +438,17 @@ db.set(`botlar.${id}.durum`, 'Onaylı')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`<@${req.user.id} adlı yetkili tarafından <@${db.fetch(`botlar.${id}.sahipid`)}> adlı kullanıcının \`${db.fetch(`botlar.${id}.id`)}\` ID'ine sahip \`${db.fetch(`botlar.${id}.isim`)}\` adlı botu onaylandı.\nhttps://rmbotlist.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+let ch = client.channels.get(co.reportCh);
+  let emb = new Discord.RichEmbed()
+  .setTitle('Report')
+  .setColor("ff0000")
+  .setTimestamp()
+  .addField("Reported By", `
+  <@${req.user.id}`, true)
+  .addField("Owner", ` <@${db.fetch(`botlar.${id}.sahipid`)}`, true)
+  .addField("Bot ID", `${db.fetch(`botlar.${id}.id`)}`, true)
+  .addField("Bot Name", `${db.fetch(`botlar.${id}.isim`)}`, true)
+  .addField("link", `[here] (https://b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
 client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`:tada: \`${db.fetch(`botlar.${id}.isim`)}\` adlı botunuz onaylandı.\nhttps://rmbotlist.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
