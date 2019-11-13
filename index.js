@@ -75,11 +75,11 @@ client.on("guildMemberAdd", member => {
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
-fs.readdir('./comm/', (err, files) => {
+fs.readdir('./commands/', (err, files) => {
   if (err) console.error(err);
   console.log(`Loading total of ${files.length} commands`);
   files.forEach(f => {
-    let props = require(`./komutlar/${f}`);
+    let props = require(`./commands/${f}`);
     
     console.log(`Loading : ${props.help.name}.`);
     client.commands.set(props.help.name, props);
@@ -91,7 +91,7 @@ fs.readdir('./comm/', (err, files) => {
 
 client.on("message", async message => {
 
-	if (message.author.bot) return
+	if (message.author.id === client.user.id) return
 	if (!message.content.startsWith(client.ayarlar.prefix)) return
 	var command = message.content.split(' ')[0].slice(client.ayarlar.prefix.length)
 	var args = message.content.split(' ').slice(1)
