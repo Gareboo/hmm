@@ -34,8 +34,8 @@ client.on('ready', async () => {
     client.appInfo = await client.fetchApplication();
   }, 60000);
   require("./app.js")(client);
-  client.user.setActivity("b, { type:"WATCHING" })
-  console.log(`Şu an ${client.channels.size} kanala, ${client.guilds.size} sunucuya ve ${client.users.size} kullanıcıya hizmet veriyorum!`)
+  client.user.setActivity("discord bots in bod", { type:"WATCHING" })
+  console.log(`Read ${client.user.tag} `)
 });
 
 setInterval(() => {
@@ -55,7 +55,12 @@ setInterval(() => {
 }, 10000);
 
 client.on("guildMemberAdd", member => {
-  if (member.user.bot) return member.addRole(member.guild.roles.find(r=>r.name==='🤖| Other Bots').id)
+  if (!member.user.bot){
+    member.addRole(member.guild.roles.find(r=> r.name==='members').id)
+  };
+  if (member.user.bot) {
+    member.addRole(member.guild.roles.find(r => r.name==='Bot Developer').id)
+  };
 });
 
 client.commands = new Discord.Collection();
