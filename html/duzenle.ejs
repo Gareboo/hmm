@@ -154,7 +154,7 @@
 		<div>
       <% if(!bot.ayar.has(`botlar.${id}.destek`)) { %>
       <input type="url" style="text-align: center;" name="botdestek" id="botdestek"
-                placeholder="Ex: ">
+                placeholder="Ex: http://discord.gg/aeS4af">
                 <% } else { %>
                     <input type="url" style="text-align: center;" name="botdestek" id="botdestek"
                 value="<%=bot.ayar.fetch(`botlar.${id}.destek`)%>">
@@ -163,11 +163,11 @@
    
    
    <h6 style="color:red">
-     Yanında * olanlar zorunlu, olmayanlar ise isteğe bağlıdır.
+     Those are with <b>*</b> are compulsory,next to them are optional.
    </h6>
 
 				<div style="width: 100%; text-align: center; margin-top: 20px;">
-					<button style="border-radius: 100px; background-color:#00a1ff" type="submit" class="btn btn-primary"><i class="fa fa-save fa-fw"></i> Düzenle<i aria-hidden='true'></i></button>
+					<button style="border-radius: 100px; background-color:#00a1ff" type="submit" class="btn btn-primary"><i class="fa fa-save fa-fw"></i> SUBMIT<i aria-hidden='true'></i></button>
 				</div>
    </div>
 			</form>
