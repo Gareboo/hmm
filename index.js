@@ -61,7 +61,7 @@ client.on("guildMemberAdd", member => {
   if (member.user.bot) {
     member.addRole(member.guild.roles.find(r => r.name==='BOTS LISTS').id)
   };
-  let welcomer = client.channels.get('');
+  let welcomer = client.channels.get('629965788488400909');
   let em = new Discord.RichEmbed()
   .setTitle("Welcomer")
   .setColor("#fff000")
@@ -91,14 +91,15 @@ fs.readdir('./commands/', (err, files) => {
 
 client.on("message", async message => {
 
-	if (message.author.id === client.user.id) return
-	if (!message.content.startsWith(client.ayarlar.prefix)) return
+	if (message.author.id == client.user.id) return;
+	
 	var command = message.content.split(' ')[0].slice(client.ayarlar.prefix.length)
 	var args = message.content.split(' ').slice(1)
 	var cmd;
 
 	if (client.commands.has(command)) cmd = client.commands.get(command)
   if (client.aliases.has(command)) cmd = client.commands.get(client.aliases.get(command))
+  if (!message.content.startsWith(client.ayarlar.prefix)) return;
 
 	if (cmd) {
     if (cmd.conf.permLevel === 'ozel') 

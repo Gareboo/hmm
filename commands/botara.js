@@ -36,7 +36,7 @@ exports.run = async (client, msg, args) => {
     .setDescription(`${a} (${b}) `, c)
     .addField('Prefix', d)
     .addField('Owner', `<@${owner}>`)
-    
+    .addField('Library', e)
     .addField('Description', g)
     .addField('Tags', h)
     
