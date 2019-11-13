@@ -6,11 +6,11 @@ exports.run = async (client, message, args) => {
   .setAuthor("Rosemary", client.user.avatarURL)  // "" 2 li tırnak yerine Bot ismi yada sunucu ismi
 	.setDescription(`
 
-**Bot nasıl ekleyeceğim?**\n[Buraya tıklayarak](https://rmbotlist.glitch.me/botekle) bot ekleyebileceğiniz yere ışınlanabilirsiniz.
+**How i add the bot?**\n[click here](https://b0d.glitch.me/botekle) .
 
-**Sistemdeki tüm botları nereden görebilirim?**\n[Buraya tıklayarak](https://rmbotlist.glitch.me/botlar) görebilirsiniz.
+**Sistemdeki tüm botları nereden görebilirim?**\n[Click here](https://b0d.glitch.me/botlar) görebilirsiniz.
 
-**Sertifika ne işe yarar? Nasıl alınır?**\n[Buraya tıklayarak](https://rmbotlist.glitch.me/sertifika) görebilirsiniz.
+**Sertifika ne işe yarar? Nasıl alınır?**\n[Buraya tıklayarak](https://b0d.glitch.me/sertifika) görebilirsiniz.
 
 **Kullanıcı panelinde neler yapılabilir?**\nKullanıcı panelinde sistemdeki botlarınızın profilini/başvurusunu düzenleyebilir ve botlarınızı sistemden silebilirsiniz.
 
@@ -28,7 +28,7 @@ exports.conf = {
 }
 
 exports.help = {
-	name: 'yardım',
-	description: 'Sistem hakkında bilgi gösterir.',
-	usage: 'yardım'
+	name: 'guide',
+	description: 'Shows the guide about BOD.',
+	usage: 'guide'
 }
