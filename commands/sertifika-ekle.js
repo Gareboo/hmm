@@ -30,7 +30,7 @@ exports.conf = {
 }
 
 exports.help = {
-	name: 'sertifika-ekle',
+	name: 'certify',
 	description: 'Yazılan ID\'deki botu sertifikalı yapar.',
-	usage: 'sertifika-ekle [ID]'
+	usage: 'certify [ID]'
 }
