@@ -484,7 +484,15 @@ db.set(`botlar.${id}.durum`, 'Beklemede')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`<@${req.user.id}> adlı yetkili tarafından \`${db.fetch(`botlar.${id}.sahip`)}\` adlı kullanıcının \`${db.fetch(`botlar.${id}.id`)}\` ID'ine sahip \`${db.fetch(`botlar.${id}.isim`)}\` adlı botu beklemeye alındı.`)
+let hch = client.channels.get(co.botlogs)
+let embe9 = new Discord.RichEmbed()
+
+.setTitle("REVIEWD")
+.setColor("#fff000")
+.setTimestamp()
+.addField("Bot", `${db.fetch(`botlar.${id}.isim`)}`, true)
+.addField("Owner", `<@${db.fetch(`botlar.${id}.sahipid`)}> (${db.fetch(`botlar.${id}.sahip`)})`, true)
+.addField("Reviewd By",`<@${req.user.id}> adlı yetkili tarafından \`${db.fetch(`botlar.${id}.sahip`)}\` adlı kullanıcının \`${db.fetch(`botlar.${id}.id`)}\` ID'ine sahip \`${db.fetch(`botlar.${id}.isim`)}\` adlı botu beklemeye alındı.`)
 
 if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
 client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` adlı botunuz beklemeye alındı!`)
@@ -507,7 +515,7 @@ app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
   
   let hch = client.channels.get(co.botlogs);
   let emb2 = new Discord.RichEmbed()
-  .setTitle("Bot declined")
+  .setTitle("BOT DECLINED")
   .setColor("ff0000")
   .setTimestamp()
   .addField("Bot Name", `${db.fetch(`botlar.${id}.isim`)}`, true)
