@@ -344,11 +344,21 @@ let ayar = req.body
 
 if(ayar['mesaj-1']) {
 db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-1']}" }`))
-client.channels.get(client.ayarlar.rapor).send(`<@${req.user.id}> adlı kullanıcı \`${db.fetch(`botlar.${req.params.botID}.isim`)}\` adlı botu raporladı! \n**Sebep:** \`${ayar['mesaj-1']}\``)
+let rchh = client.channels.get(co.reportCh)
+let emb5 = new Discord.RichEmbed()
+
+.setTitle("Report")
+.setColor("ff0000")
+.setTimestamp()
+.addField("Reported Bot", `${db.fetch(`botlar.${req.params.botID}.isim`)}`, true)
+.addField("Reported By", `<@${req.user.id}> (${req.user.username}#${req.user.discriminator})`, true)
+.addField("Reason", `\` ${ayar['mesaj-1']}\` `, true)
+rchh.send(emb5)
+
 }
 if(ayar['mesaj-2']) {
 db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-2']}" }`))
-client.channels.get(client.ayarlar.rapor).send(`<@${req.user.id}> adlı kullanıcı \`${db.fetch(`botlar.${req.params.botID}.isim`)}\` adlı botu raporladı! \n**Sebep:** \`${ayar['mesaj-2']}\``)
+let rh = client.channels.get(co.reportCh
 }
 
 res.redirect('/bot/'+req.params.botID);
