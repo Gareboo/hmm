@@ -12,7 +12,7 @@ exports.run = async (client, msg, args) => {
     else if (!error) {
       var a = db.fetch(`botlar.${args[0]}.isim`)
       var b = db.fetch(`botlar.${args[0]}.id`)
-      var ch = db.fetch(`botlar.${args[0]}.avatar`)
+      var c = db.fetch(`botlar.${args[0]}.avatar`)
       var d = db.fetch(`botlar.${args[0]}.prefix`)
       var e = db.fetch(`botlar.${args[0]}.kutuphane`)
       var g = db.fetch(`botlar.${args[0]}.kisaaciklama`)
@@ -20,26 +20,29 @@ exports.run = async (client, msg, args) => {
       var owner = db.fetch(`botlar.${args[0]}.sahipid`)
       var gh = db.fetch(`botlar.${args[0]}.durum`)
       var gg = db.fetch(`botlar.${args[0]}.sertifika`)
+    }
       
+      request(`https://b0d.glitch.me/bot`, function (error, response, body) {
+    if (error) return msg.channel.send('Hata:', error);
+    else if (!error) {
+    if (body.includes(args[0])=== false) return msg.reply("Bu ID'de bir bot sistemde bulunmamaktadır!")
+    }
+       })
       
-      }
-    })
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
-    .setThumbnail(ch)
+    .setThumbnail(c)
     .setTitle(`BOD - Bot Info`)
-    .setDescription(`${a} (${b}) `)
+    .setDescription(`${a} (${b}) `, c)
     .addField('Prefix', d)
     .addField('Owner', `<@${owner}>`)
-    .addField('Library', e)
     .addField('Description', g)
     .addField('Tags', h)
     .addField('Status', gh)
-      
+    .addField('Certified', gg)
     msg.channel.send({embed})
-}
-    
-  
+  })
+};
 
 exports.conf = {
   enabled: true,
