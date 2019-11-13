@@ -133,17 +133,17 @@ app.get("/botyonetim/hata", (req, res) => {
 renderTemplate(res, req, "hataa.ejs")
 });
 
-app.get("/ADDBOT/hata", (req, res) => {
+app.get("/botekle/hata", (req, res) => {
  
 renderTemplate(res, req, "hataaa.ejs")
 });
 
-app.get("/ADDBOT", checkAuth, (req, res) => {
+app.get("/botekle", checkAuth, (req, res) => {
  
 renderTemplate(res, req, "ADDBOT.ejs")
 });
 
-app.post("/ADDBOT", checkAuth, (req, res) => {
+app.post("/botekle", checkAuth, (req, res) => {
 
 let ayar = req.body
 
@@ -152,7 +152,7 @@ if (ayar === {} || !ayar['botid'] || !ayar['botprefix'] || !ayar['kutuphane'] ||
 let ID = ayar['botid']
 
 if (db.has('botlar')) {
-    if (Object.keys(db.fetch('botlar')).includes(ID) === true) return res.redirect('/botekle/hata')
+    if (Object.keys(db.fetch('botlar')).includes(ID) === true) return res.redirect('/ADDBOT/hata')
 }
   
   var tag = ''
