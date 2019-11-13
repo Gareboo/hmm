@@ -5,20 +5,20 @@
 		<div align="center">
 			<img src="https://cdn.discordapp.com/avatars/642363909852102697/d04bd0cf3c40914614c362f07a3cb009.png?size=2048" width="180px" height="180px" class="d-inline-block align-top rounded-circle" alt=""><br><br>
       <h3><b>BOTS OF DISCORD</b></h3>
-					<p style="font-size:15px; color:lightgrey">Discord developer platform with native and foreign discord bots and content </p>
-					<a href="/hakkimizda" class="btn btn-default" style="background-color:#f12ad3; color:#fff"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Detaylı bilgi</a>
+					<p style="font-size:15px; color:lightgrey">Discord developer platform with native and foreign discord bots and content to improve your discord bots</p>
+					<a href="/hakkimizda" class="btn btn-default" style="background-color:#f12ad3; color:#fff"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Info</a>
    <br>
 <br>
-<h5 style="font-weight:bold;">Glitch Discord Bot Yapımı</h5>
+<h5 style="font-weight:bold;">BOTS OF DISCORD API</h5>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dYBDOVUnGm4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
     </div>
     </div>
 
   <h3 align="center" style="color:#7289DA">
-    <strong>Sertifikalı Botlar
+    <strong>Certified Bots
     </strong></h3>
-  <div align="center"><p>Burada sistemdeki sertifikalı botlar yer almaktadır.<br>Tüm botları <a href="/botlar">buraya tıklayarak</a> görebilirsiniz.<br>(Botlar oy sayısına göre orantılı olarak sıralanmaktadır.)</p></div>
+  <div align="center"><p>Here are the certified bots in the api.<br>You can see all the bots by clicking <a href="/botlar">here.</a><br>(Bots are proportional to the no. of votes ranked.)</p></div>
   
   
   <div class="row">
@@ -36,19 +36,19 @@
         <div class="card card-lg botcard" style="box-shadow:5px 5px 5px rgba(0,0,0,0.1);border-radius:12px;overflow:hidden;border-color:#2C2F33;width:16rem;">
      <div align="center" class="card-img">
          <a href="/bot/<%=idd%>"><img src="<%=bot.ayar.fetch(`botlar.${idd}.avatar`)%>" class="card-img-top" alt="Bot Avatar"></a>
-       <br><br><a style="color:limegreen"><img src="https://i.postimg.cc/SxFNhhJS/xir-sertifika.png" width="30px" height="30px"> Sertifikalı</a><br>   
+       <br><br><a style="color:limegreen"><img src="https://i.postimg.cc/SxFNhhJS/xir-sertifika.png" width="30px" height="30px"> Certified</a><br>   
        <div class="badge badge-primary"><strong style='color: white;'>Oy: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`botlar.${idd}.oy`)||0%></span></div>
                     <div class="badge badge-success"><%=bot.ayar.fetch(`botlar.${idd}.kutuphane`)%></div>
                             </div>
                             <div align="center" style="background-color:#fff" class="card-block">
                                 <div class="card-title">
                                   <h4><a href="/bot/<%=idd%>" style="color:#222"><%=bot.useful.seg(bot.ayar.fetch(`botlar.${idd}.isim`), 5)%></a></h4>
-                                <h6 style="font-size:17px; color:#222">Sahibi: <%=bot.ayar.fetch(`botlar.${idd}.sahip`)%></h6></div>         
+                                <h6 style="font-size:17px; color:#222">Owner: <%=bot.ayar.fetch(`botlar.${idd}.sahip`)%></h6></div>         
                         
                               <p class="card-text" style="color:#222"><%=bot.ayar.fetch(`botlar.${idd}.kisaaciklama`)%></p>
                                <hr>
-                              <h6 align="center"><div class="button_slide slide_right"><a href="/bot/<%=idd%>" style="font-size:20px; text-decoration:none; color:#23272A;">Görüntüle</a></div>
-                                <div class="button_slide slide_right"><a href="https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=8" target="popup" onclick="window.open('https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=8','name','width=400,height=700')" style="font-size:20px; text-decoration:none; color:#23272A;">Davet Et</a></div></h6>
+                              <h6 align="center"><div class="button_slide slide_right"><a href="/bot/<%=idd%>" style="font-size:20px; text-decoration:none; color:#23272A;">VIEW</a></div>
+                                <div class="button_slide slide_right"><a href="https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=0" target="popup" onclick="window.open('https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=0','name','width=400,height=700')" style="font-size:20px; text-decoration:none; color:#23272A;">INVITE</a></div></h6>
                             </div>
                        </div><br>
       </div>
@@ -59,7 +59,7 @@
     <% } else { %>
     <div align="center">
       <h5 align="center" style="color:#222">
-      Sistemde hiç bot bulunmuyor.
+      You didn't registered any bots.
       </h5>
     </div>
     <% } %>
