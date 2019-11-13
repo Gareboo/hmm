@@ -20,15 +20,10 @@ exports.run = async (client, msg, args) => {
       var owner = db.fetch(`botlar.${args[0]}.sahipid`)
       var gh = db.fetch(`botlar.${args[0]}.durum`)
       var gg = db.fetch(`botlar.${args[0]}.sertifika`)
-    }
       
-      request(`https://b0d.glitch.me/bot`, function (error, response, body) {
-    if (error) return msg.channel.send('Hata:', error);
-    else if (!error) {
-    if (body.includes(args[0])=== false) return msg.reply("Bu ID'de bir bot sistemde bulunmamaktadır!")
-    }
-       })
       
+      }
+    })
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setThumbnail(c)
@@ -36,13 +31,17 @@ exports.run = async (client, msg, args) => {
     .setDescription(`${a} (${b}) `, c)
     .addField('Prefix', d)
     .addField('Owner', `<@${owner}>`)
+    .addField('Library', e)
     .addField('Description', g)
     .addField('Tags', h)
     .addField('Status', gh)
+
     .addField('Certified', gg)
+      
     msg.channel.send({embed})
-  })
-};
+}
+    
+  
 
 exports.conf = {
   enabled: true,
