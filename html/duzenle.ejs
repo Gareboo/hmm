@@ -139,7 +139,7 @@
         <% } else { %>
          <option value ="Social"> Social </option>
         <% } %>
-        <% if (bot.ayar.fetch(`botlar.$id}.etiket`).includes('Game')) { %>
+        <% if (bot.ayar.fetch(`botlar.${id}.etiket`).includes('Game')) { %>
         <option value="Game" selected>Game</option>
         <% } else { %>
          <option value ="Game"> Game </option>

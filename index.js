@@ -34,7 +34,7 @@ client.on('ready', async () => {
     client.appInfo = await client.fetchApplication();
   }, 60000);
   require("./app.js")(client);
-  client.user.setActivity(`/yardım`, { type:"PLAYING" })
+  client.user.setActivity("b, { type:"WATCHING" })
   console.log(`Şu an ${client.channels.size} kanala, ${client.guilds.size} sunucuya ve ${client.users.size} kullanıcıya hizmet veriyorum!`)
 });
 
