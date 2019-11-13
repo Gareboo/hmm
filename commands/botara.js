@@ -7,10 +7,10 @@ exports.run = async (client, msg, args) => {
 let ll = mm.id;
     let prefix = await db.fetch(`${msg.guild.id}.prefix`) || client.ayarlar.prefix
     if(!args[0]) {
-      return msg.channel.send(new Discord.RichEmbed().setDescription('Please mention a bot' ).setColor("RED"))
+      return msg.channel.send(new Discord.RichEmbed().setDescription('Please mention a bot or provide a id' ).setColor("RED"))
     }
   if (db.has('botlar')) {
-  if (Object.keys(db.fetch('botlar')).includes(ll) === false) return msg.reply("This bot doesn't exist in api")
+  if (Object.keys(db.fetch('botlar')).includes(ll) === false) return msg.reply("This bot doesn't exist in the api")
   };
     request(`https://b0d.glitch.me/bot/${ll}`, function (error, response, body) {
     if (error) return msg.channel.send('Hata:', error);
@@ -30,7 +30,7 @@ let ll = mm.id;
       request(`https://b0d.glitch.me/bot`, function (error, response, body) {
     if (error) return msg.channel.send('Hata:', error);
     else if (!error) {
-    if (body.includes(ll)=== true) return msg.reply("Bu ID'de bir bot sistemde bulunmamaktadır!")
+    if (body.includes(ll)=== true) return msg.reply("Doesn't exist")
     }
        })
       
@@ -52,7 +52,7 @@ let ll = mm.id;
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['search-bot', 'find-bot', 'info'],
+  aliases: ['search-bot', 'b', 'info'],
   permLevel: 0,
   kategori: 'genel'
 };
