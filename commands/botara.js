@@ -18,6 +18,8 @@ exports.run = async (client, msg, args) => {
       var g = db.fetch(`botlar.${args[0]}.kisaaciklama`)
       var h = db.fetch(`botlar.${args[0]}.etiket`);
       var owner = db.fetch(`botlar.${args[0]}.sahipid`)
+      var gh = db.fetch(`botlar.${args[0]}.durum`)
+      var gg = db.fetch(`botlar.${args[0]}.sertifika`)
     }
       
       request(`https://b0d.glitch.me/bot`, function (error, response, body) {
@@ -36,11 +38,8 @@ exports.run = async (client, msg, args) => {
     .addField('Owner', `<@${owner}>`)
     .addField('Description', g)
     .addField('Tags', h)
-    .addField('Sertifika', "gh")
-    .addField('Onay Durumu', "m")
-    .addField("Web Sitesi","--")
-    .addField('Github', "h")
-    .addField('Destek Sunucusu',"77")
+    .addField('Status', gh)
+    .addField('Certified', gg)
     msg.channel.send({embed})
   })
 };
