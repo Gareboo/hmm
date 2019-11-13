@@ -59,8 +59,10 @@ client.on("guildMemberAdd", member => {
     member.addRole(member.guild.roles.find(r=> r.name==='members').id)
   };
   if (member.user.bot) {
-    member.addRole(member.guild.roles.find(r => r.name==='Bot Developer').id)
+    member.addRole(member.guild.roles.find(r => r.name==='BOTS LISTS').id)
   };
+  let welcomer = client.channels.get('');
+  let em = new Discord.RichEmbed(
 });
 
 client.commands = new Discord.Collection();
