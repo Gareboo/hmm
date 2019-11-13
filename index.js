@@ -40,10 +40,10 @@ client.on('ready', async () => {
 
 setInterval(() => {
   if (db.has('botlar') && db.has('kbotlar')) {
-    for (let i = 0; i < Object.keys(db.fetch('kbotlar')).length; i++) {
-      for (let x = 0; x < Object.keys(db.fetch('botlar')).length; x++) {
-        let bot = Object.keys(db.fetch('botlar'))[x]
-        let user = Object.keys(db.fetch('kbotlar'))[i]
+    for (var i = 0; i < Object.keys(db.fetch('kbotlar')).length; i++) {
+      for (var x = 0; x < Object.keys(db.fetch('botlar')).length; x++) {
+        var bot = Object.keys(db.fetch('botlar'))[x]
+        var user = Object.keys(db.fetch('kbotlar'))[i]
         if (db.has(`oylar.${bot}.${user}`)) {
           setTimeout(() => {
             db.delete(`oylar.${bot}.${user}`)
@@ -92,10 +92,10 @@ fs.readdir('./commands/', (err, files) => {
 client.on("message", async message => {
 
 	if (message.author.id === client.user.id) return
-	if (message.content.startsWith(client.ayarlar.prefix)) {
-	let command = message.content.split(' ')[0].slice(client.ayarlar.prefix.length)
-	let args = message.content.split(' ').slice(1)
-	let cmd;
+	if (!message.content.startsWith(client.ayarlar.prefix)) return
+	var command = message.content.split(' ')[0].slice(client.ayarlar.prefix.length)
+	var args = message.content.split(' ').slice(1)
+	var cmd;
 
 	if (client.commands.has(command)) cmd = client.commands.get(command)
   if (client.aliases.has(command)) cmd = client.commands.get(client.aliases.get(command))
@@ -115,7 +115,7 @@ client.on("message", async message => {
 		}
 		if (cmd.conf.permLevel === 4) {
 			const x = await client.fetchApplication()
-      let arr = client.yetkililer
+      var arr = client.yetkililer
 			if (!arr.includes(message.author.id)) return message.channel.send("You dont have perm.")
 		}
 		if (cmd.conf.enabled === false) {
@@ -125,8 +125,6 @@ client.on("message", async message => {
 				message.channel.send("Please use a discord channel")
 		}
 		cmd.run(client, message, args)
-  };
-            
 });
 
 

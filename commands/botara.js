@@ -12,7 +12,7 @@ exports.run = async (client, msg, args) => {
     else if (!error) {
       var a = db.fetch(`botlar.${args[0]}.isim`)
       var b = db.fetch(`botlar.${args[0]}.id`)
-      var c = db.fetch(`botlar.${args[0]}.avatar`)
+      var ch = db.fetch(`botlar.${args[0]}.avatar`)
       var d = db.fetch(`botlar.${args[0]}.prefix`)
       var e = db.fetch(`botlar.${args[0]}.kutuphane`)
       var g = db.fetch(`botlar.${args[0]}.kisaaciklama`)
@@ -20,34 +20,37 @@ exports.run = async (client, msg, args) => {
       var owner = db.fetch(`botlar.${args[0]}.sahipid`)
       var gh = db.fetch(`botlar.${args[0]}.durum`)
       var gg = db.fetch(`botlar.${args[0]}.sertifika`)
-    }
       
       
-      
+      }
+    })
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
-    .setThumbnail(c)
+    .setThumbnail(ch)
     .setTitle(`BOD - Bot Info`)
-    .setDescription(`${a} (${b}) `, c)
+    .setDescription(`${a} (${b}) `)
     .addField('Prefix', d)
     .addField('Owner', `<@${owner}>`)
+    .addField('Library', e)
     .addField('Description', g)
     .addField('Tags', h)
     .addField('Status', gh)
+      
     msg.channel.send({embed})
-  })
-};
+}
+    
+  
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['search-bot', 'b', 'info'],
+  aliases: ['search-bot', 'find-bot', 'info'],
   permLevel: 0,
   kategori: 'genel'
 };
 
 exports.help = {
-  name: 'bot-info',
+  name: 'bot-ara',
   description: 'DiscordBotsTR sistemindeki botları aramanızı sağlar.',
-  usage: 'b [bot id]'
+  usage: 'bot-ara [bot id]'
 };
