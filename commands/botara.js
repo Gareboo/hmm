@@ -7,6 +7,9 @@ exports.run = async (client, msg, args) => {
     if(!args[0]) {
       return msg.channel.send(new Discord.RichEmbed().setDescription('Please mention a bot' ).setColor("RED"))
     }
+  if (db.has('botlar')) {
+  if (Object.keys(db.fetch('botlar')).includes(args[0]) === false) return msg.reply("This bot doesn't exist in api")
+  };
     request(`https://b0d.glitch.me/bot/${args[0]}`, function (error, response, body) {
     if (error) return msg.channel.send('Hata:', error);
     else if (!error) {
@@ -25,7 +28,7 @@ exports.run = async (client, msg, args) => {
       request(`https://b0d.glitch.me/bot`, function (error, response, body) {
     if (error) return msg.channel.send('Hata:', error);
     else if (!error) {
-    if (body.includes(args[0])=== false) return msg.reply("Bu ID'de bir bot sistemde bulunmamaktadır!")
+    if (body.includes(args[0])=== true) return msg.reply("Bu ID'de bir bot sistemde bulunmamaktadır!")
     }
        })
       
@@ -53,7 +56,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'bot-ara',
-  description: 'DiscordBotsTR sistemindeki botları aramanızı sağlar.',
-  usage: 'bot-ara [bot id]'
+  name: 'bot-info',
+  description: 'info about a bot',
+  usage: 'bot-info [bot id]'
 };
