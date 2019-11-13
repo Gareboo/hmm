@@ -209,10 +209,10 @@ db.set(`kbotlar.${req.user.id}.${ID}`, db.fetch(`botlar.${ID}`))
 
 res.redirect("/kullanici/"+req.params.userID);
 
-client.channels.get(co.botlogs).send(`<@${req.user.id}> \`${sistem.username}#${sistem.discriminator}\` has been added`)
+client.channels.get(co.botlogs).send(`> <@${req.user.id}> \`${sistem.username}#${sistem.discriminator}\` has been added`)
 
 if (client.users.has(req.user.id) === true) {
-  client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` has been added successfully please wait for the approval test.`)
+  client.users.get(req.user.id).send(`> \`${sistem.username}#${sistem.discriminator}\` has been added successfully please wait for the approval test.`)
 }
 
 }})
@@ -321,11 +321,11 @@ db.set(`botlar.${ID}.destek`, ayar['botdestek'])
 
 res.redirect("/kullanici/"+req.params.userID);
 let id = req.params.botID
-client.channels.get(co.botlogs).send(`<@${req.user.id}> edited \` ${sistem.username}#${sistem.discriminator}\` successfully. \nhttps://b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.channels.get(co.botlogs).send(`> <@${req.user.id}> edited \` ${sistem.username}#${sistem.discriminator}\` successfully. \nhttps://b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
 
 
 if (client.users.has(req.user.id) === true) {
-client.users.get(req.user.id).send(`> \`${sistem.username}#${sistem.discriminator}\` edited successfully. \nhttps.b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.users.get(req.user.id).send(`> \`${sistem.username}#${sistem.discriminator}\` edited successfully. \nhttps://b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
 }
 
 }})
@@ -363,11 +363,11 @@ db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['me
   .setTitle("REPORT")
   .setColor("ff000")
   .setTimestamp()
-  .addField("Bot", `\`${db.fetch(`botlar.${req.params.botID}`)}\` `, true)
+  .addField("Bot", `\`${db.fetch(`botlar.${req.params.botID}.isim`)}\` `, true)
   .addField("Bot Owner", `${db.fetch(`botlar.${req.params.botID}.sahip`)}`, true)
-  .addField("Reported By", `<@${req.user.id}> (${req.user.tag})`, true)
+  .addField("Reported By", `<@${req.user.id}> (${req.user.username}#${req.user.discriminator})`, true)
 .addField("Reason", `\`${ayar['mesaj-2']}\` `, true)
-  let chhhh = client.channel.get(co.reportCh);
+  let chhhh = client.channels.get(co.reportCh);
   chhhh.send(emb6);
 }
 
