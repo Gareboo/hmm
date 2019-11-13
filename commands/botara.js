@@ -12,7 +12,7 @@ exports.run = async (client, msg, args) => {
     else if (!error) {
       var a = db.fetch(`botlar.${args[0]}.isim`)
       var b = db.fetch(`botlar.${args[0]}.id`)
-      var c = db.fetch(`botlar.${args[0]}.avatar`)
+      var ch = db.fetch(`botlar.${args[0]}.avatar`)
       var d = db.fetch(`botlar.${args[0]}.prefix`)
       var e = db.fetch(`botlar.${args[0]}.kutuphane`)
       var g = db.fetch(`botlar.${args[0]}.kisaaciklama`)
@@ -26,17 +26,15 @@ exports.run = async (client, msg, args) => {
     })
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
-    .setThumbnail(c)
+    .setThumbnail(ch)
     .setTitle(`BOD - Bot Info`)
-    .setDescription(`${a} (${b}) `, c)
+    .setDescription(`${a} (${b}) `)
     .addField('Prefix', d)
     .addField('Owner', `<@${owner}>`)
     .addField('Library', e)
     .addField('Description', g)
     .addField('Tags', h)
     .addField('Status', gh)
-
-    .addField('Certified', gg)
       
     msg.channel.send({embed})
 }
