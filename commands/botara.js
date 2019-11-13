@@ -36,10 +36,10 @@ exports.run = async (client, msg, args) => {
     .setDescription(`${a} (${b}) `, c)
     .addField('Prefix', d)
     .addField('Owner', `<@${owner}>`)
+    
     .addField('Description', g)
     .addField('Tags', h)
-    .addField('Status', gh)
-    .addField('Certified', gg)
+    
     msg.channel.send({embed})
   })
 };
