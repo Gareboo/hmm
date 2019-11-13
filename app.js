@@ -347,19 +347,29 @@ db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['me
 let rchh = client.channels.get(co.reportCh)
 let emb5 = new Discord.RichEmbed()
 
-.setTitle("Report")
+.setTitle("REPORT")
 .setColor("ff0000")
 .setTimestamp()
 .addField("Reported Bot", `${db.fetch(`botlar.${req.params.botID}.isim`)}`, true)
-.addField("Reported By", `<@${req.user.id}> (${req.user.username}#${req.user.discriminator})`, true)
+.addField("Bot owner", `${db.fetch(`botlar.${req.params.botID}.sahip`)}`, true)
+.addField("Reported By", `<@${req.user.id}> (${req.user.tag}#${req.user.discriminator})`, true)
 .addField("Reason", `\` ${ayar['mesaj-1']}\` `, true)
 rchh.send(emb5)
-
+}
 
 if(ayar['mesaj-2']) {
 db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-2']}" }`))
-emb5.addField("Reason2", `\`${ayar['mesaj-2']}\` `, true)
-}}
+  let emb6 = new Discord.RichEmbed()
+  .setTitle("REPORT")
+  .setColor("ff000")
+  .setTimestamp()
+  .addField("Bot", `\`${db.fetch(`botlar.${req.params.botID}`)}\` `, true)
+  .addField("Bot Owner", `${db.fetch(`botlar.${req.params.botID}.sahip`)}`, true)
+  .addField("Reported By", `<@${req.user.id}> (${req.user.tag})`, true)
+.addField("Reason", `\`${ayar['mesaj-2']}\` `, true)
+  let chhhh = client.channel.get(co.reportCh);
+  chhhh.send(emb6);
+}
 
 res.redirect('/bot/'+req.params.botID);
 });
