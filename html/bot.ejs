@@ -4,7 +4,7 @@
                   <br>
                         <div class="post-meta">
                             <div align="center"><span class="yapimci"><i class="fa fa-gavel" aria-hidden="true"></i> <strong>Owner: </strong><a href="/kullanici/<%=bot.ayar.fetch(`botlar.${id}.sahipid`)%>"><%=bot.ayar.fetch(`botlar.${id}.sahip`)%></a></span><a style="color:lightgrey;font-weight:bold;">   |   </a>
-                            <span class="oy"><a class="oy"><i class="fa fa-check-circle" aria-hidden="true"></i> <%=bot.ayar.fetch(`botlar.${id}.oy`) || 0%> Oy</a></span>
+                            <span class="oy"><a class="oy"><i class="fa fa-check-circle" aria-hidden="true"></i> <%=bot.ayar.fetch(`botlar.${id}.oy`) || 0%> votes</a></span>
                         <% if(bot.ayar.has(`botlar.${id}.sertifika`) === true) { %>
                               <a style="color:lightgrey;font-weight:bold;">  | </a><span><img src="https://i.postimg.cc/SxFNhhJS/xir-sertifika.png" width="20px" height="20px"> <a style="color:limegreen">Certified</a></span>
                          <% } %>
@@ -79,7 +79,7 @@
         
         </div><br>
           <div class="post-actions">
-           <center><p style="font-size:30px;color:blue;">TAGS</p></center>
+           <center><p style="font-size:30px;color:black;">Tags</p></center>
                   <div class="post-tags">
                     <div align="center">
                       <%if(Array.isArray(bot.ayar.fetch(`botlar.${id}.etiket`)) === false) {%>
