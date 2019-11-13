@@ -14,6 +14,7 @@ const LevelStore = require("level-session-store")(session);
 const Strategy = require("passport-discord").Strategy;
 const helmet = require("helmet");
 const md = require("marked");
+const co = require("./Config.json");
 
 module.exports = (client) => {
   
@@ -320,7 +321,7 @@ db.set(`botlar.${ID}.destek`, ayar['botdestek'])
 
 res.redirect("/kullanici/"+req.params.userID);
 let id = req.params.botID
-client.channels.get(client.ayarlar.kayıt).send(`<@${req.user.id}> adlı kullanıcı \`${sistem.id}\` ID'ye sahip \`${sistem.username}#${sistem.discriminator}\` adlı botunun başvurusunu&profilini düzenledi. ${edit}\nhttps://rmbotlist.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.channels.get(co.botlogs).send(`<@${req.user.id}> adlı kullanıcı \`${sistem.id}\` ID'ye sahip \`${sistem.username}#${sistem.discriminator}\` adlı botunun başvurusunu&profilini düzenledi. ${edit}\nhttps://rmbotlist.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
 var edit = client.emojis.get("566200909470629889")
 
 if (client.users.has(req.user.id) === true) {

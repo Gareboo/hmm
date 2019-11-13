@@ -35,7 +35,10 @@ let tomute = message.guild.member(message.mentions.users.first() || message.guil
   .addField("Moderator", `<@${message.author.id}>`)
   .addField("Muted user", `<@${tomute.id}>`)
   .addField("Time", `${ms(ms(mutetime))}`)
-  .addField("Reason", args[2] || 
+  .addField("Reason", args[2] || "No reason given")
+   message.guild.channels.find(c => c.name === "mod-logs").send(emm);
+  
+  
   setTimeout(function(){
     tomute.removeRole(muterole.id);
     message.channel.send(`<@${tomute.id}> has been unmuted`)
