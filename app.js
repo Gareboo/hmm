@@ -152,7 +152,7 @@ if (ayar === {} || !ayar['botid'] || !ayar['botprefix'] || !ayar['kutuphane'] ||
 let ID = ayar['botid']
 
 if (db.has('botlar')) {
-    if (Object.keys(db.fetch('botlar')).includes(ID) === true) return res.redirect('/ADDBOT/hata')
+    if (Object.keys(db.fetch('botlar')).includes(ID) === true) return res.redirect('/botekle/hata')
 }
   
   var tag = ''
