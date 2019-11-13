@@ -133,17 +133,17 @@ app.get("/botyonetim/hata", (req, res) => {
 renderTemplate(res, req, "hataa.ejs")
 });
 
-app.get("/botekle/hata", (req, res) => {
+app.get("/ADDBOT/hata", (req, res) => {
  
 renderTemplate(res, req, "hataaa.ejs")
 });
 
-app.get("/botekle", checkAuth, (req, res) => {
+app.get("/ADDBOT", checkAuth, (req, res) => {
  
-renderTemplate(res, req, "botekle.ejs")
+renderTemplate(res, req, "ADDBOT.ejs")
 });
 
-app.post("/botekle", checkAuth, (req, res) => {
+app.post("/ADDBOT", checkAuth, (req, res) => {
 
 let ayar = req.body
 
