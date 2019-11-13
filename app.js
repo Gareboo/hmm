@@ -209,7 +209,7 @@ db.set(`kbotlar.${req.user.id}.${ID}`, db.fetch(`botlar.${ID}`))
 
 res.redirect("/kullanici/"+req.params.userID);
 
-client.channels.get(co.botlogs).send(`> <@${req.user.id}> \`${sistem.username}#${sistem.discriminator}\` has been added`)
+client.channels.get(co.botlogs).send(`> <@${req.user.id}> added \`${sistem.username}#${sistem.discriminator}\` bot`)
 
 if (client.users.has(req.user.id) === true) {
   client.users.get(req.user.id).send(`> \`${sistem.username}#${sistem.discriminator}\` has been added successfully please wait for the approval test.`)
@@ -321,7 +321,7 @@ db.set(`botlar.${ID}.destek`, ayar['botdestek'])
 
 res.redirect("/kullanici/"+req.params.userID);
 let id = req.params.botID
-client.channels.get(co.botlogs).send(`> <@${req.user.id}> edited \` ${sistem.username}#${sistem.discriminator}\` successfully. \nhttps://b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.channels.get(co.botlogs).send(`> <@${req.user.id}> edited \` ${sistem.username}#${sistem.discriminator}\` successfully. \n(https://b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)})`)
 
 
 if (client.users.has(req.user.id) === true) {
@@ -460,14 +460,14 @@ res.redirect("/yetkili")
 
 let ch = client.channels.get(co.botlogs);
   let emb = new Discord.RichEmbed()
-  .setTitle('Bot Approved')
+  .setTitle('BOT APPROVED')
   .setColor("fff000")
   .setTimestamp()
   .addField("Bot Name", `${db.fetch(`botlar.${id}.isim`)}`, true)
   .addField("Bot Id", `${db.fetch(`botlar.${id}.id`)}`, true)
   .addField("Bot owner", `<@${db.fetch(`botlar.${id}.sahipid`)}>`, true)
-  .addField("Approved By", `<@${req.user.id}> (${req.user.tag})`, true)
-  .addField("link", `https://b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+  .addField("Approved By", `<@${req.user.id}> (${req.user.username}#${req.user.discriminator})`, true)
+  .addField("Link", `[ click here](https://b0d.glitch.me/bot/${db.fetch(`botlar.${id}.id`)})`)
   ch.send(emb);
 
 if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
