@@ -355,11 +355,11 @@ let emb5 = new Discord.RichEmbed()
 .addField("Reason", `\` ${ayar['mesaj-1']}\` `, true)
 rchh.send(emb5)
 
-}
+
 if(ayar['mesaj-2']) {
 db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-2']}" }`))
-let rh = client.channels.get(co.reportCh
-}
+emb5.addField("Reason2", `\`${ayar['mesaj-2']}\` `, true)
+}}
 
 res.redirect('/bot/'+req.params.botID);
 });
@@ -502,7 +502,7 @@ app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
   .setTimestamp()
   .addField("Bot Name", `${db.fetch(`botlar.${id}.isim`)}`, true)
   .addField("Owner", `<@${db.fetch(`botlar.${id}.sahipid`)}> (${db.fetch(`botlar.${id}.sahip`)})`, true)
-  .addField("Reason", `${req.body['red-sebep']}`, true)
+  .addField("Reason", `\`${req.body['red-sebep']}\` `, true)
   .addField("Rejected By", `<@${req.user.id}> (${req.user.username}#${req.user.discriminator})`, true)
   hch.send(emb2);
   if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
@@ -519,13 +519,13 @@ app.get("/api", (req, res) => {
 
 app.get("/api/botlar", (req, res) => {
   res.json({
-    hata: 'Bir bot ID yazınız.'
+    hata: 'Please enter a bot ID.'
   });
 });
 
 app.get("/api/botlar/:botID/oylar", (req, res) => {
   res.json({
-    hata: 'Bir kullanıcı ID yazınız.'
+    hata: 'Please enter a user ID'
   });
 });
 
@@ -535,7 +535,7 @@ app.get("/api/botlar/:botID", (req, res) => {
    if (db.has('botlar')) {
       if (Object.keys(db.fetch('botlar')).includes(id) === false) {
      res.json({
-       hata: 'Yazdığınız ID\'e sahip bir bot sistemde bulunmuyor.'
+       hata: 'A bot with the ID you typed does not exist on the system.'
      });
    }
   }
@@ -571,7 +571,7 @@ app.get("/api/botlar/:botID/oylar/:kullaniciID", (req, res) => {
   if (db.has('botlar')) {
       if (Object.keys(db.fetch('botlar')).includes(id) === false) {
      res.json({
-       hata: 'Yazdığınız ID\'e sahip bir bot sistemde bulunmuyor.'
+       hata: 'A bot with the ID you typed does not exist on the system.'
      });
    }
   }
