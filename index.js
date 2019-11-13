@@ -35,7 +35,7 @@ client.on('ready', async () => {
   }, 60000);
   require("./app.js")(client);
   client.user.setActivity("discord bots in bod", { type:"WATCHING" })
-  console.log(`Read ${client.user.tag} `)
+  console.log(`Ready ${client.user.tag} `)
 });
 
 setInterval(() => {
@@ -62,17 +62,26 @@ client.on("guildMemberAdd", member => {
     member.addRole(member.guild.roles.find(r => r.name==='BOTS LISTS').id)
   };
   let welcomer = client.channels.get('');
-  let em = new Discord.RichEmbed(
+  let em = new Discord.RichEmbed()
+  .setTitle("Welcomer")
+  .setColor("#fff000")
+  .setThumbnail(member.user.displayAvatarURL)
+  .setDescription(`Hello <@${member.id}> ,welcome to the ${member.guild.name},have a great time here`)
+  .setTimestamp()
+  .setFooter(client.user.displayAvatarURL + "BOD")
+  welcomer.send(em);
+  member.send(em);
 });
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
-fs.readdir('./komutlar/', (err, files) => {
+fs.readdir('./comm/', (err, files) => {
   if (err) console.error(err);
-  console.log(`${files.length} komut yüklenecek.`);
+  console.log(`Loading total of ${files.length} commands`);
   files.forEach(f => {
     let props = require(`./komutlar/${f}`);
-    console.log(`Yüklenen komut: ${props.help.name}.`);
+    
+    console.log(`Loading : ${props.help.name}.`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.help.name);
@@ -107,13 +116,13 @@ client.on("message", async message => {
 		if (cmd.conf.permLevel === 4) {
 			const x = await client.fetchApplication()
       var arr = client.yetkililer
-			if (!arr.includes(message.author.id)) return message.channel.send("Yetersiz yetki.")
+			if (!arr.includes(message.author.id)) return message.channel.send("You dont have perm.")
 		}
 		if (cmd.conf.enabled === false) {
 			message.channel.send("Bu komut devre dışı.")
 		}
 		if (message.channel.type === "dm") {
-				message.channel.send("Bu komutu özel mesajlarda kullanamazsın.")
+				message.channel.send("Please use a discord channel")
 		}
 		cmd.run(client, message, args)
 });
