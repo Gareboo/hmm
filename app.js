@@ -490,12 +490,13 @@ app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
   .setTitle("Bot declined")
   .setColor("ff0000")
   .setTimestamp()
-  .addField("Bot Name", ``, true)
-  .addField("Owner", ``, true)
-  .addF(`\`${req.user.username}#${req.user.discriminator}\` adlı yetkili tarafından \`${db.fetch(`botlar.${id}.sahip`)}\` adlı kullanıcının \`${db.fetch(`botlar.${id}.id`)}\` ID'ine sahip \`${db.fetch(`botlar.${id}.isim`)}\` adlı botu \`${req.body['red-sebep']}\` sebebi ile reddedildi. `)
-  
+  .addField("Bot Name", `${db.fetch(`botlar.${id}.isim`)}`, true)
+  .addField("Owner", `<@${db.fetch(`botlar.${id}.sahipid`)}> (${db.fetch(`botlar.${id}.sahip`)})`, true)
+  .addField("Reason", `${req.body['red-sebep']}`, true)
+  .addField("Rejected By", `<@${req.user.id}> (${req.user.username}#${req.user.discriminator})`, true)
+  hch.send(emb2);
   if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-  client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` adlı botunuz \`${req.body['red-sebep']}\` sebebi ile reddedildi.`)
+  client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(emb2);
   }
 
   });
