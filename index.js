@@ -14,7 +14,7 @@ client.tags = require('html-tags');
 client.ayarlar = {
   "prefix": "+",
   "oauthSecret": "_LRWrO6Kk0Yp0_mFQ3lfyd8-iarcBz-t",
-	"callbackURL":  "https://cypress-mail.glitch.me/callback",
+	"callbackURL":  "https://b0d.glitch.me/callback",
 	"kayıt": "624096233455222795",
   "rapor": "624096233455222795",
   "renk": "#D49818"
