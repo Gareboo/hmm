@@ -209,10 +209,10 @@ db.set(`kbotlar.${req.user.id}.${ID}`, db.fetch(`botlar.${ID}`))
 
 res.redirect("/kullanici/"+req.params.userID);
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` adlı kullanıcı \`${sistem.id}\` ID'sine sahip \`${sistem.username}#${sistem.discriminator}\` adlı botunu sıraya ekledi. Botu onaylanmayı bekliyor.`)
+client.channels.get(co.botlogs).send(`<@${req.user.id}> \`${sistem.username}#${sistem.discriminator}\` has been added`)
 
 if (client.users.has(req.user.id) === true) {
-  client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` adlı botunuz başarıyla sıraya eklendi. Lütfen botunuzun onaylanmasını bekleyin.`)
+  client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` has been added successfully please wait for the approval test.`)
 }
 
 }})
@@ -321,7 +321,7 @@ db.set(`botlar.${ID}.destek`, ayar['botdestek'])
 
 res.redirect("/kullanici/"+req.params.userID);
 let id = req.params.botID
-client.channels.get(co.botlogs).send(`<@${req.user.id}> adlı kullanıcı \`${sistem.id}\` ID'ye sahip \`${sistem.username}#${sistem.discriminator}\` adlı botunun başvurusunu&profilini düzenledi. ${edit}\nhttps://rmbotlist.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.channels.get(co.botlogs).send(`<@${req.user.id}> edited \` ${sistem.username}#${sistem.discriminator}\` adlı botunun başvurusunu&profilini düzenledi. ${edit}\nhttps://rmbotlist.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
 var edit = client.emojis.get("566200909470629889")
 
 if (client.users.has(req.user.id) === true) {
