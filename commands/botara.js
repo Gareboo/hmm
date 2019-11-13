@@ -17,24 +17,7 @@ exports.run = async (client, msg, args) => {
       var e = db.fetch(`botlar.${args[0]}.kütüphane`)
       var g = db.fetch(`botlar.${args[0]}.kisa_aciklama`)
       var h = db.fetch(`botlar.${args[0]}.etiketler`);
-      if(JSON.parse(body).destek_sunucusu === 'Belirtilmemiş') {
-        var i = 'Belirtilmemiş'
-      } else {
-        var i = `[${a} Destek Sunucusu](${JSON.parse(body).destek_sunucusu})`
-      }
-      if(JSON.parse(body).web_sitesi === 'Belirtilmemiş') {
-        var j = 'Belirtilmemiş'
-      } else {
-      var j = JSON.parse(body).web_sitesi
-      }
-      if(JSON.parse(body).github === 'Belirtilmemiş')  {
-        var k = 'Belirtilmemiş'
-      } else {
-        var k = `[Github](${JSON.parse(body).github})`
-      }
-      var l = JSON.parse(body).sertifika
-      var m = JSON.parse(body).durum
-      var n = JSON.parse(body).oy_sayisi
+      
     }
       
       request(`https://b0d.glitch.me/bot`, function (error, response, body) {
@@ -48,16 +31,16 @@ exports.run = async (client, msg, args) => {
     .setColor("RANDOM")
     .setThumbnail(c)
     .setTitle(`XiR - Bot Arama`)
-    .setDescription(`${a} (${b}) [${n} oy]`, c)
+    .setDescription(`${a} (${b}) `, c)
     .addField('Prefix', d)
     .addField('Sahip', "hh")
     .addField('Kısa Açıklama', g)
     .addField('Etiketler', h)
-    .addField('Sertifika', l)
-    .addField('Onay Durumu', m)
-    .addField("Web Sitesi", j)
-    .addField('Github', k)
-    .addField('Destek Sunucusu', i)
+    .addField('Sertifika', "gh")
+    .addField('Onay Durumu', "m")
+    .addField("Web Sitesi","--")
+    .addField('Github', "h")
+    .addField('Destek Sunucusu',"77")
     msg.channel.send({embed})
   })
 };
