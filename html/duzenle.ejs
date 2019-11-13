@@ -134,12 +134,32 @@
         <% } else { %>
         <option value ="Utility"> Utility </option>
         <% } %>
-        <% if (bot
+        <% if (bot.ayar.fetch(`botlar.${id}.etiket`).includes('Social')) { %>
+        <option value="Social" selected>Social</option>
+        <% } else { %>
          <option value ="Social"> Social </option>
+        <% } %>
+        <% if (bot.ayar.fetch(`botlar.$id}.etiket`).includes('Game')) { %>
+        <option value="Game" selected>Game</option>
+        <% } else { %>
          <option value ="Game"> Game </option>
+        <% } %>
+        <% if (bot.ayar.fetch(`botlar.${id}.etiket`).includes('Roleplay')) { %>
+        <option value="Roleplay" selected>Roleplay</option>
+        <% } else { %>
          <option value ="Roleplay"> Roleplay </option>
+        <% } %>
+        <% if (bot.ayar.fetch(`botlar.${id}.etiket`).includes('Economy')) { %>
+        <option value="Economy" selected>Economy</option>
+        <% } else { %>
          <option value ="Economy"> Economy </option>
+        <% } %>
+        <% if (bot.ayar.fetch(`botlar.${id}.etiket`).includes('Stream')) { %>
+        <option value="Stream" selected>Stream</option>
+        <% } else { %>
          <option value ="Stream"> Stream </option>
+        <% } %>
+        <% if (bot.ayar.fetch(`botlar.¢
          
          <option value ="Pubg"> Pubg </option>
          <option value ="Multitask"> Multitask </option>
