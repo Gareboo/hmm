@@ -37,10 +37,10 @@ exports.run = async (client, msg, args) => {
       var n = JSON.parse(body).oy_sayisi
     }
       
-      request(`https://b0d.glitch.me/bot`, function (errorr, responsee, bodyy) {
-    if (errorr) return msg.channel.send('Hata:', errorr);
-    else if (!errorr) {
-    if (bodyy.includes(args[0])=== false) return msg.reply("Bu ID'de bir bot sistemde bulunmamaktadır!")
+      request(`https://b0d.glitch.me/bot`, function (error, responsee, body) {
+    if (error) return msg.channel.send('Hata:', error);
+    else if (!error) {
+    if (body.includes(args[0])=== false) return msg.reply("Bu ID'de bir bot sistemde bulunmamaktadır!")
     }
        })
       
