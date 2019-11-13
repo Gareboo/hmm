@@ -113,7 +113,7 @@
 		<% if (bot.ayar.fetch(`botlar.${id}.durum`) === 'Reddedilmiş') { %>
 		<tr>
 		<td><a class="btn btn-success" href="/botyonetici/onayla/<%=id%>"><i class="fa fa-check" aria-hidden="true"></i> APPROVE<i aria-hidden="true"></i></a>
-		<a class="btn btn-warning" href="/botyonetici/bekleme/<%=id%>"><i class="fa fa-pause" aria-hidden="true"></i> DECLINE<i aria-hidden="true"></i></a>
+		<a class="btn btn-warning" href="/botyonetici/bekleme/<%=id%>"><i class="fa fa-pause" aria-hidden="true"></i> PEND<i aria-hidden="true"></i></a>
 		<a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=0"><i class="fa fa-plus" aria-hidden="true"></i> INVITE</a>
 		<td><%=bot.ayar.fetch(`botlar.${id}.isim`)%></td>
 		<td><%=bot.ayar.fetch(`botlar.${id}.id`)%></td>

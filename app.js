@@ -492,11 +492,13 @@ let embe9 = new Discord.RichEmbed()
 .setTimestamp()
 .addField("Bot", `${db.fetch(`botlar.${id}.isim`)}`, true)
 .addField("Owner", `<@${db.fetch(`botlar.${id}.sahipid`)}> (${db.fetch(`botlar.${id}.sahip`)})`, true)
-.addField("Reviewd By",`<@${req.user.id}> adlı yetkili tarafından \`${db.fetch(`botlar.${id}.sahip`)}\` adlı kullanıcının \`${db.fetch(`botlar.${id}.id`)}\` ID'ine sahip \`${db.fetch(`botlar.${id}.isim`)}\` adlı botu beklemeye alındı.`)
-
+.addField("Reviewd By",`<@${req.user.id}> (${req.user.username})`, true)
+.setFooter("Note: Review means your bot is in pending list not rejected")
+hch.send(embe9)
 if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` adlı botunuz beklemeye alındı!`)
-}
+client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(embe9);
+                 }
+
 
 });
 
