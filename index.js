@@ -90,43 +90,95 @@ fs.readdir('./commands/', (err, files) => {
 });
 
 client.on("message", async message => {
-
-	if (message.author.id == client.user.id) return;
-	
+  
+	if (message.author.bot) return
+	if (!message.content.startsWith(client.ayarlar.prefix)) return
 	var command = message.content.split(' ')[0].slice(client.ayarlar.prefix.length)
 	var args = message.content.split(' ').slice(1)
-	var cmd;
+	var cmd = ''
 
-	if (client.commands.has(command)) cmd = client.commands.get(command)
-  if (client.aliases.has(command)) cmd = client.commands.get(client.aliases.get(command))
-  if (!message.content.startsWith(client.ayarlar.prefix)) return;
+	if (client.commands.has(command)) {
+		var cmd = client.commands.get(command)
+	} else if (client.aliases.has(command)) {
+		var cmd = client.commands.get(client.aliases.get(command))
+	}
 
 	if (cmd) {
-    if (cmd.conf.permLevel === 'ozel') 
-      if (client.yetkililer.includes(message.author.id) === false) return message.channel.send("Yetersiz yetki.")
+    if (cmd.conf.permLevel === 'special') { //o komutu web yetkilileri kullanabsiln sadece diye yaptıgım bişe 
+      if (client.yetkililer.includes(message.author.id) === false) {
+        const embed = new Discord.RichEmbed()
+					.setDescription(`Brother, you're not a WebSite official.!`)
+					.setColor(client.ayarlar.renk)
+					.setTimestamp()
+				message.channel.send("Insufficient Authorization.")
+				return
+      }
     }
+    
 		if (cmd.conf.permLevel === 1) {
-			if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Yetersiz yetki.")
+			if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+				const embed = new Discord.RichEmbed()
+					.setDescription(`You first learn to manage messages then use this command.`)
+					.setColor(client.ayarlar.renk)
+					.setTimestamp()
+				message.channel.send("Insufficient authority.")
+				return
+			}
 		}
 		if (cmd.conf.permLevel === 2) {
-			if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("Yetersiz yetki.")
+			if (!message.member.hasPermission("KICK_MEMBERS")) {
+				const embed = new Discord.RichEmbed()
+					.setDescription(`You are not authorized to discard members.`)
+					.setColor(client.ayarlar.renk)
+					.setTimestamp()
+				message.channel.send("You are not authorized to discard members.")
+				return
+			}
 		}
 		if (cmd.conf.permLevel === 3) {
-			if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("Yetersiz yetki.")
+			if (!message.member.hasPermission("ADMINISTRATOR")) {
+				const embed = new Discord.RichEmbed()
+					.setDescription(`Insufficient authority.`)
+					.setColor(client.ayarlar.renk)
+					.setTimestamp()
+				message.channel.send("Insufficient authority.")
+				return
+			}
 		}
 		if (cmd.conf.permLevel === 4) {
 			const x = await client.fetchApplication()
-      var arr = client.yetkililer
-			if (!arr.includes(message.author.id)) return message.channel.send("You dont have perm.")
+      var arr = [x.owner.id]
+			if (!arr.includes(message.author.id)) {
+				const embed = new Discord.RichEmbed()
+					.setDescription(`Competent inadequate.`)
+					.setColor(client.ayarlar.renk)
+					.setTimestamp()
+				message.channel.send("Insufficient authority.")
+				return
+			}
 		}
 		if (cmd.conf.enabled === false) {
-			message.channel.send("Bu komut devre dışı.")
+			const embed = new Discord.RichEmbed()
+				.setDescription(`This command is disabled.`)
+				.setColor(client.ayarlar.renk)
+				.setTimestamp()
+			message.channel.send("This command is disabled.")
+			return
 		}
-		if (message.channel.type === "dm") {
-				message.channel.send("Please use a discord channel")
+		if(message.channel.type === "dm") {
+			if (cmd.conf.guildOnly === true) {
+				const embed = new Discord.RichEmbed()
+					.setDescription(`You cannot use this command in private messages.`)
+					.setColor(client.ayarlar.renk)
+					.setTimestamp()
+				message.channel.send("[You cannot use this command in private messages]")
+				return
+			}
 		}
 		cmd.run(client, message, args)
+	}
 });
+
 
 
 client.login("NjM2OTA0ODM3MTExNDgwMzMx.Xcp4Cw.r2tr9J1oLgMy-1rMSTzhIzGxjHw")
