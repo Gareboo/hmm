@@ -1,34 +1,40 @@
 <%- include('ek/header', {bot, user, path}) %>
-
+<style>
+body {
+background-color:;
+}
+</style>
 <div class="post post-single">
                   <br>
                         <div class="post-meta">
                             <div align="center"><span class="yapimci"><i class="fa fa-gavel" aria-hidden="true"></i> <strong>Owner: </strong><a href="/kullanici/<%=bot.ayar.fetch(`botlar.${id}.sahipid`)%>"><%=bot.ayar.fetch(`botlar.${id}.sahip`)%></a></span><a style="color:lightgrey;font-weight:bold;">   |   </a>
                             <span class="oy"><a class="oy"><i class="fa fa-check-circle" aria-hidden="true"></i> <%=bot.ayar.fetch(`botlar.${id}.oy`) || 0%> votes</a></span>
+                              
                         <% if(bot.ayar.has(`botlar.${id}.sertifika`) === true) { %>
                               <a style="color:lightgrey;font-weight:bold;">  | </a><span><img src="https://i.postimg.cc/SxFNhhJS/xir-sertifika.png" width="20px" height="20px"> <a style="color:limegreen">Certified</a></span>
                          <% } %>
                           </div>
                         </div><br>
                         <div class="post-thumbnail">
+                          
                             <div align="center"><img src="<%=bot.ayar.fetch(`botlar.${id}.avatar`)%>"
-                                width="200" height="200" class="botavatar"><h3 class="botisim"><%=bot.ayar.fetch(`botlar.${id}.isim`)%></h3>
+                                width="200" style="border:3px solid #F22AD3; border-radius:100px;"height="200" class="botavatar"><h3 class="botisim"><%=bot.ayar.fetch(`botlar.${id}.isim`)%></h3>
                               <h6 class="kisaaciklama"><%=bot.ayar.fetch(`botlar.${id}.kisaaciklama`)%></h6></div>
  <div class="shapeback"></div>
                           
-        <div align ="left">
-          <button class="botprefix btn btn-default">PREFIX: <%=bot.ayar.fetch(`botlar.${id}.prefix`)%></button>
+        <div align ="center">
+          <button class="botprefix btn btn-default">PREFIX:    <b><%=bot.ayar.fetch(`botlar.${id}.prefix`)%></b></button>
           
       <%if (bot.ayar.has(`botlar.${id}.destek`)){%>
-                 <a href="<%=bot.ayar.fetch(`botlar.${id}.destek`)%>"><button class="btn btn-warning destek">SUPPORT SERVER</button></a>
+                 <a  href="<%=bot.ayar.fetch(`botlar.${id}.destek`)%> "><button class=" botprefix btn btn-default" >SUPPORT SERVER</button></a>
             <%} %>
           
           <%if (bot.ayar.has(`botlar.${id}.site`)){%>
-                 <a href="<%=bot.ayar.fetch(`botlar.${id}.site`)%>"><button class="btn btn-warning website">WEBSITE</button></a>
+                 <a href="<%=bot.ayar.fetch(`botlar.${id}.site`)%>"><button class="botprefix btn btn-default ">WEBSITE</button></a>
             <%} %>
           
           <%if (bot.ayar.has(`botlar.${id}.github`)){%>
-                 <a href="<%=bot.ayar.fetch(`botlar.${id}.github`)%>"><button class="btn btn-warning github">GITHUB</button></a>
+                 <a href="<%=bot.ayar.fetch(`botlar.${id}.github`)%>"><button class="botprefix btn btn-default">GITHUB</button></a>
             <%} %>
           </div>
 <br>

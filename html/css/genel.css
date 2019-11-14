@@ -1,6 +1,7 @@
 body {
   font-family: 'Poppins', sans-serif;
 	background: #fff;
+  background-image: url()
 }
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,600');
@@ -29,7 +30,7 @@ h6:link, h6:visited {
 .topnav a {
 	float: left;
 	display: block;
-	color: #f2f2f2;
+	color:white;
 	text-align: center;
 	padding: 13px 14px;
 	text-decoration: none;
@@ -37,13 +38,13 @@ h6:link, h6:visited {
 }
 
 .topnav a:hover {
-	background-color: #f12ad3;
+	background-color: #000000;
 	color: white;
 }
 
 
 .active {
-	background-color: #f12ad3;
+	
 	color: white;
 }
 
@@ -283,12 +284,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 .uzunaciklama {
   color:white; 
-  background-color:#282828;
+  width:500px;
+   margin-left: auto;
+  margin-right: auto;
+  background-color:black;
   padding: 2px;
+ box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   text-align: center;
+ 
   border-radius:10px;
-  -webkit-box-shadow: 8px 4px 12px 1px rgba(0,0,0,0.43); 
-box-shadow: 8px 4px 12px 1px rgba(0,0,0,0.43);
   /*padding:0px 0px 15px;*/
 }
 

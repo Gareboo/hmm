@@ -13,7 +13,7 @@ const co = require("./Config.json");
 
 
 client.ayarlar = {
-  "prefix": db.fetch("prefix"),
+  "prefix": ".",
   "oauthSecret": co.oauth,
 	"callbackURL":  co.callback,
 	"kayıt": "",
@@ -23,10 +23,10 @@ client.ayarlar = {
 
 
 
-client.yetkililer = ["572327928646598667", "450634297871695896"]
-client.webyetkililer = ["572327928646598667", "450634297871695896"]
+client.yetkililer = ["572327928646598667", "450634297871695896","360363051792203779"]
+client.webyetkililer = ["572327928646598667", "450634297871695896", "360363051792203779"]
 client.sunucuyetkililer = ["572327928646598667", "450634297871695896"]
-client.yetkililer = ["572327928646598667", "450634297871695896"]
+client.yetkililer = ["572327928646598667", "450634297871695896", "360363051792203779"]
 client.webyetkililer = ["572327928646598667", "450634297871695896"]
 
 client.on('ready', async () => {
@@ -39,37 +39,23 @@ client.on('ready', async () => {
   console.log(`Ready ${client.user.tag} `)
 });
 
-setInterval(() => {
-  if (db.has('botlar') && db.has('kbotlar')) {
-    for (var i = 0; i < Object.keys(db.fetch('kbotlar')).length; i++) {
-      for (var x = 0; x < Object.keys(db.fetch('botlar')).length; x++) {
-        var bot = Object.keys(db.fetch('botlar'))[x]
-        var user = Object.keys(db.fetch('kbotlar'))[i]
-        if (db.has(`oylar.${bot}.${user}`)) {
-          setTimeout(() => {
-            db.delete(`oylar.${bot}.${user}`)
-          }, require('ms')(`${client.useful.seg(db.fetch(`oylar.${bot}.${user}`), 6)}h`));
-        }
-      }
-    }
-  }
-}, 10000);
+
 
 client.on("guildMemberAdd", member => {
   if (!member.user.bot){
-    member.addRole(member.guild.roles.find(r=> r.name==='members').id)
+    member.addRole(member.guild.roles.find(r=> r.name==='Member B O D').id)
   };
   if (member.user.bot) {
     member.addRole(member.guild.roles.find(r => r.name==='BOTS LISTS').id)
   };
-  let welcomer = client.channels.get('629965788488400909');
+  let welcomer = client.channels.get('642536161742553135');
   let em = new Discord.RichEmbed()
   .setTitle("Welcomer")
   .setColor("#fff000")
   .setThumbnail(member.user.displayAvatarURL)
   .setDescription(`Hello <@${member.id}> ,welcome to the ${member.guild.name},have a great time here`)
   .setTimestamp()
-  .setFooter(client.user.displayAvatarURL + "BOD")
+  .setFooter(`${client.user.displayAvatarURL}`)
   welcomer.send(em);
   member.send(em);
 });

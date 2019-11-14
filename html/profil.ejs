@@ -6,7 +6,7 @@
        <h3 style="color:#fff"><%=kisi.username%>#<%=kisi.discriminator%></h3>
   </div>
 
-  <h3 style="color:lightgrey;font-size: 1.5rem;"><%=kisi.username%> \nYour Bots</h3>
+  <h3 style="color:lightgrey;font-size: 1.5rem;"><%=kisi.username%>  Bots</h3>
 <br>
   <% if (bot.ayar.has('botlar')) { %>
     <% if (bot.ayar.has(`kbotlar.${kisi.id}`)) { %>   
@@ -45,7 +45,7 @@
                             <hr>
                             <div class="button_slide"><h6 align="center"><a href="/bot/<%=idd%>" style="font-size:20px; text-decoration:none; color:white; ">VIEW</a></div>
                               <% if (bot.ayar.fetch(`botlar.${idd}.sahipid`) !== user.id) { %>
-                                <a href="https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=0" style="font-size:20px; color:#222; background-color:#fff" target="popup" onclick="window.open('https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=0','name','width=400,height=700')">INVITE</a></h6>
+                                <a href="https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=0" style="font-size:20px; color:#222; background-color:#fff" target="popup" onclick="window.open('https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=8','name','width=400,height=700')">INVITE</a></h6>
                                 <% } %>
         <% if (user) { %>
           <% if(bot.ayar.fetch(`botlar.${idd}.sahipid`) === user.id) { %>
