@@ -9,24 +9,25 @@ client.ayar = db;
 client.htmll = require('cheerio');
 client.useful = useful;
 client.tags = require('html-tags');
+const co = require("./Config.json");
 
 
 client.ayarlar = {
-  "prefix": "+",
-  "oauthSecret": "_LRWrO6Kk0Yp0_mFQ3lfyd8-iarcBz-t",
-	"callbackURL":  "https://b0d.glitch.me/callback",
-	"kayıt": "624096233455222795",
-  "rapor": "624096233455222795",
+  "prefix": db.fetch("prefix"),
+  "oauthSecret": co.oauth,
+	"callbackURL":  co.callback,
+	"kayıt": "",
+  "rapor": "",
   "renk": "#D49818"
 };
 
 
 
-client.yetkililer = ["572327928646598667"]
-client.webyetkililer = ["572327928646598667"]
-client.sunucuyetkililer = ["572327928646598667"]
-client.yetkililer = ["572327928646598667"]
-client.webyetkililer = ["572327928646598667"]
+client.yetkililer = db.fetch("admins")
+client.webyetkililer = db.fetch("admins")
+client.sunucuyetkililer = db.fetch("admins")
+client.yetkililer = db.fetch("admins")
+client.webyetkililer = db.fetch("admins")
 
 client.on('ready', async () => {
   client.appInfo = await client.fetchApplication();
