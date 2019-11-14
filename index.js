@@ -92,7 +92,8 @@ fs.readdir('./commands/', (err, files) => {
 
 client.on("message", async message => {
   
-	if (message.author.bot) return
+	if (message.author.bot) return;
+  db.set("prefix", "+");
 	if (!message.content.startsWith(client.ayarlar.prefix)) return
 	var command = message.content.split(' ')[0].slice(client.ayarlar.prefix.length)
 	var args = message.content.split(' ').slice(1)
