@@ -6,7 +6,7 @@
        <h3 style="color:#fff"><%=kisi.username%>#<%=kisi.discriminator%></h3>
   </div>
 
-  <h3 style="color:lightgrey;font-size: 1.5rem;"><%=kisi.username%> Your Bots</h3>
+  <h3 style="color:lightgrey;font-size: 1.5rem;"><%=kisi.username%> \nYour Bots</h3>
 <br>
   <% if (bot.ayar.has('botlar')) { %>
     <% if (bot.ayar.has(`kbotlar.${kisi.id}`)) { %>   
@@ -33,7 +33,7 @@
     <div class="badge badge-success">Approved</div>
     <% } %>
 
-    <div class="badge badge-primary"><strong style='color: white;'>Oy: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`botlar.${idd}.oy`)||0%></span></div>
+    <div class="badge badge-primary"><strong style='color: white;'>Votes: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`botlar.${idd}.oy`)||0%></span></div>
                  <div style="background-color:grey; color:#fff" class="badge badge-default"><%=bot.ayar.fetch(`botlar.${idd}.kutuphane`)%></div>
                          </div>
                           <div align="center" style="background-color:#fff" class="card-block">
@@ -69,7 +69,7 @@
    <% } %>
    <% } else if (!bot.ayar.has('botlar')) {%>
         <h5 style="color:#222">
-          No bots in the system
+          You do not added any bots in the system.
    </h5>
    <% } %>
 <style>
