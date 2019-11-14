@@ -91,7 +91,7 @@
         <%= //bot.ayar.fetch(`${id}.uzunaciklama`) %>
         </code></pre>-->
       
-      <textarea style="height:150px; background-color:#222; color:#fff;" name="uzun-aciklama" id="uzun-aciklama" value="<%=bot.ayar.fetch(`${id}.uzunaciklama`)%>" minlength="50" required="required">      
+      <textarea style="height:150px; background-color:#222; color:#fff;" name="uzun-aciklama" id="uzun-aciklama" value="<%=bot.ayar.fetch(`${id}.uzunaciklama`)%>" minlength="50" maxlength="200" required="required">      
         <%= bot.ayar.fetch(`botlar.${id}.uzunaciklama`) %>
       </textarea>
      </div>
