@@ -23,11 +23,11 @@ client.ayarlar = {
 
 
 
-client.yetkililer = db.fetch("admins")
-client.webyetkililer = db.fetch("admins")
-client.sunucuyetkililer = db.fetch("admins")
-client.yetkililer = db.fetch("admins")
-client.webyetkililer = db.fetch("admins")
+client.yetkililer = [
+client.webyetkililer = ["572327928646598667"]
+client.sunucuyetkililer = ["572327928646598667"]
+client.yetkililer = ["572327928646598667"]
+client.webyetkililer = ["572327928646598667"]
 
 client.on('ready', async () => {
   client.appInfo = await client.fetchApplication();
@@ -92,7 +92,8 @@ fs.readdir('./commands/', (err, files) => {
 
 client.on("message", async message => {
   
-	if (message.author.bot) return;
+	if (message.author.id == client.user.id) return;
+  
   
 	if (!message.content.startsWith(client.ayarlar.prefix)) return
 	var command = message.content.split(' ')[0].slice(client.ayarlar.prefix.length)

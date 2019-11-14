@@ -5,8 +5,9 @@ exports.run = async (client, message, args) => {
   [prop, ...value] = args;
   if (prop == "prefix") {
     db.set("prefix", value.join(" "))
+    message.channel.send(`> Prefix changed to ${value}`);
   }
-    
+
   
    
   
