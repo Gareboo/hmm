@@ -23,7 +23,7 @@ client.ayarlar = {
 
 
 
-client.yetkililer = [
+client.yetkililer = ["572327928646598667"]
 client.webyetkililer = ["572327928646598667"]
 client.sunucuyetkililer = ["572327928646598667"]
 client.yetkililer = ["572327928646598667"]
