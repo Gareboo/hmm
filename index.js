@@ -23,11 +23,11 @@ client.ayarlar = {
 
 
 
-client.yetkililer = ["572327928646598667"]
-client.webyetkililer = ["572327928646598667"]
-client.sunucuyetkililer = ["572327928646598667"]
-client.yetkililer = ["572327928646598667"]
-client.webyetkililer = ["572327928646598667"]
+client.yetkililer = ["572327928646598667", "450634297871695896"]
+client.webyetkililer = ["572327928646598667", "450634297871695896"]
+client.sunucuyetkililer = ["572327928646598667", "450634297871695896"]
+client.yetkililer = ["572327928646598667", "450634297871695896"]
+client.webyetkililer = ["572327928646598667", "450634297871695896"]
 
 client.on('ready', async () => {
   client.appInfo = await client.fetchApplication();

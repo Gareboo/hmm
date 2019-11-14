@@ -6,7 +6,7 @@ exports.run = async (client, msg, args) => {
   let mm = msg.mentions.members.first() || msg.guild.members.get(args[0])
 let ll = mm.id;
     let prefix = await db.fetch(`${msg.guild.id}.prefix`) || client.ayarlar.prefix
-    if(!args[0]) {
+    if(!mm) {
       return msg.channel.send(new Discord.RichEmbed().setDescription('Please mention a bot or provide a id' ).setColor("RED"))
     }
   if (db.has('botlar')) {
