@@ -5,3 +5,4 @@ node_modules/
 Config.json
 json.sqlite
 watch.json
+shrinkwrap.yaml
