@@ -1,8 +1,9 @@
 {
   "botlogs": "642605092515872798",
   "reportCh":"642369676881690624",
-  "token": "",
-  "oauth": "",
+  "token": "NjQ0Mzc1MTE1MjE5MzM3MjE2.XczIsg.EP3dLzrJYOuQsiOnVbhv9EuLaBg",
+  "oauth": "sbpbzLwv7r3iZTpWGPzNhejt-wcMLHpY",
   "prefix": ".",
+  "callback": "https://b0d.glitch.me/callback",
   "modlog": ""
 }

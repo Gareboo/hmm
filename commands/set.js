@@ -3,7 +3,7 @@ const db = require("quick.db");
 
 exports.run = async (client, message, args) => {
   [prop, ...value] = args;
-  if (prop === "prefix") {
+  if (prop == "prefix") {
     db.set("prefix", value.join(" "))
   }
     

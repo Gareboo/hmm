@@ -93,7 +93,7 @@ fs.readdir('./commands/', (err, files) => {
 client.on("message", async message => {
   
 	if (message.author.bot) return;
-  db.set("prefix", "+");
+  
 	if (!message.content.startsWith(client.ayarlar.prefix)) return
 	var command = message.content.split(' ')[0].slice(client.ayarlar.prefix.length)
 	var args = message.content.split(' ').slice(1)
@@ -183,6 +183,6 @@ client.on("message", async message => {
 
 
 
-client.login("NjM2OTA0ODM3MTExNDgwMzMx.Xcp4Cw.r2tr9J1oLgMy-1rMSTzhIzGxjHw")
+client.login(co.token)
 process.env = {}
-process.env.TOKEN = "NjM2OTA0ODM3MTExNDgwMzMx.Xcp4Cw.r2tr9J1oLgMy-1rMSTzhIzGxjHw";   
+process.env.TOKEN = co.token;
