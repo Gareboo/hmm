@@ -48,7 +48,7 @@ module.exports = (client) => {
   app.use(passport.session());
   app.use(helmet());
 
-  app.locals.domain = "https://bots-of-discord.tk/"
+  app.locals.domain = "www.bots-of-discord.tk/"
 
   app.engine("html", require("ejs").renderFile);
   app.set("view engine", "html");
